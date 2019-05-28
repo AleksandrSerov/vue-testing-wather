@@ -2,13 +2,8 @@
   <div id="app" class="flex-align has-text-centered">
     <p class="app__date has-text-weight-bold">{{ date }}</p>
     <router-view></router-view>
-    <div class="app__cities">
-      <router-link
-        v-for="city in cities"
-        :to="'/weather/' + city.id"
-        :key="city.id"
-        v-if="!loading"
-      >{{ city.name }}</router-link>
+    <div class="app__cities" v-if="!loading">
+      <router-link v-for="city in cities" :to="'/weather/' + city.id" :key="city.id">{{ city.name }}</router-link>
     </div>
   </div>
 </template>
