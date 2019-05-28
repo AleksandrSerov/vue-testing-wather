@@ -7,47 +7,47 @@
         v-for="city in cities"
         :to="'/weather/' + city.id"
         :key="city.id"
-        v-if="!loading">{{ city.name }}</router-link>
+        v-if="!loading"
+      >{{ city.name }}</router-link>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 
 export default {
-  name: 'app',
+  name: "app",
   data() {
     return {
       cities: [
-        { id: 2459115, name: 'New York City, New York' },
-        { id: 468739, name: 'Buenos Aires, Argentina' },
-        { id: 2122265, name: 'Moscow, Russia' },
-        { id: 1118370, name: 'Tokyo, Japan' },
-        { id: 1105779, name: 'Sydney, Australia' },
-        { id: 1398823, name: 'Lagos, Nigeria' }
+        { id: 2459115, name: "New York City, New York" },
+        { id: 468739, name: "Buenos Aires, Argentina" },
+        { id: 2122265, name: "Moscow, Russia" },
+        { id: 1118370, name: "Tokyo, Japan" },
+        { id: 1105779, name: "Sydney, Australia" },
+        { id: 1398823, name: "Lagos, Nigeria" }
       ]
-    }
+    };
   },
   computed: {
     date() {
-      return (new Date()).toDateString();
+      return new Date().toDateString();
     },
-    ...mapGetters([
-      'loading'
-    ])
-  },
-}
+    ...mapGetters(["loading"])
+  }
+};
 </script>
 
 <style>
-html, body {
+html,
+body {
   height: 100%;
 }
 
 #app {
   height: 100%;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
