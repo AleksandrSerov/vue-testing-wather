@@ -38,7 +38,6 @@ describe("App.vue", () => {
   it("should displat rhe foorer links when app is not loading", () => {
     setUpWrapper(false);
     const footerLinks = wrapper.find(".app__cities");
-
     expect(footerLinks.html()).to.contain(
       '<router-link-stub to="/weather/2459115">New York City, New York</router-link-stub>'
     );
@@ -59,8 +58,29 @@ describe("App.vue", () => {
       '<router-link-stub to="/weather/1398823">Lagos, Nigeria</router-link-stub>'
     );
   });
+
   it("should not display footer links when application is loading", () => {
     setUpWrapper(true);
-    // assertion for the absence of footer links
+    const footerLinks = wrapper.find(".app__cities");
+    console.log(footerLinks.html());
+
+    expect(footerLinks.html()).to.not.contain(
+      '<router-link-stub to="/weather/2459115">New York City, New York</router-link-stub>'
+    );
+    expect(footerLinks.html()).to.not.contain(
+      '<router-link-stub to="/weather/468739">Buenos Aires, Argentina</router-link-stub>'
+    );
+    expect(footerLinks.html()).to.not.contain(
+      '<router-link-stub to="/weather/2122265">Moscow, Russia</router-link-stub>'
+    );
+    expect(footerLinks.html()).to.not.contain(
+      '<router-link-stub to="/weather/1118370">Tokyo, Japan</router-link-stub>'
+    );
+    expect(footerLinks.html()).to.not.contain(
+      '<router-link-stub to="/weather/1105779">Sydney, Australia</router-link-stub>'
+    );
+    expect(footerLinks.html()).to.not.contain(
+      '<router-link-stub to="/weather/1398823">Lagos, Nigeria</router-link-stub>'
+    );
   });
 });
